@@ -1,0 +1,4 @@
+# A TM for the universal language consisting of all strings.
+     2 | 0 1 _
+-> * q |
+   ! r |

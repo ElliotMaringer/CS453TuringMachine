@@ -1,0 +1,5 @@
+# A TM for the language consisting of all non-empty strings.
+   2 | 0 1 _
+-> q | 01=(a,,R)
+ * a |
+ ! r |

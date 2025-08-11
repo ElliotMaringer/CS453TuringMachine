@@ -1,0 +1,20 @@
+# TM for language { w#w | w \in {0,1}^n }, Sipser TM M1.
+# Below is a condensed specification of this TM's transition table entries
+# that follows an adjacency list representation with key-value pairs instead
+# of an adjacent matrix.
+# It also exploits empty entries in the (q,w,D) portions for both q and/or w,
+# with an omitted next state implying a loop to the same state and an omitted
+# tape write implying no overwrite is done (alternatively, the tape symbol
+# that is read is the tape symbol that gets written).
+
+    3 | 0 1 # x _
+-> q1 | 0=(q2,x,R) 1=(q3,x,R) #=(q8,,R)
+   q2 | 01=(,,R) #=(q4,,R)
+   q3 | 01=(,,R) #=(q5,,R)
+   q4 | x=(,,R) 0=(q6,x,L)
+   q5 | x=(,,R) 1=(q6,x,L)
+   q6 | 01x=(,,L) #=(q7,,L)
+   q7 | 01=(,,L) x=(q1,,R)
+   q8 | x=(,,R) _=(qA,,R)
+ * qA |
+ ! qR |

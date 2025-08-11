@@ -1,0 +1,4 @@
+# A TM for the empty language.
+     2 | 0 1 _
+-> ! q |
+   * a |

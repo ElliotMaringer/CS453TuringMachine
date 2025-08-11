@@ -1,0 +1,16 @@
+   26 | a b c d e f g h i j k l m n o p q r s t u v w x y z _
+-> q1 | abcdefghijklmnopqrstuvwxyz_=(q2,h,R)
+   q2 | abcdefghijklmnopqrstuvwxyz_=(q3,e,R)
+   q3 | abcdefghijklmnopqrstuvwxyz_=(q4,l,R)
+   q4 | abcdefghijklmnopqrstuvwxyz_=(q5,l,R)
+   q5 | abcdefghijklmnopqrstuvwxyz_=(q6,o,R)
+   q6 | abcdefghijklmnopqrstuvwxyz_=(q7,_,R)
+   q7 | abcdefghijklmnopqrstuvwxyz_=(q8,w,R)
+   q8 | abcdefghijklmnopqrstuvwxyz_=(q9,o,R)
+   q9 | abcdefghijklmnopqrstuvwxyz_=(q10,r,R)
+  q10 | abcdefghijklmnopqrstuvwxyz_=(q11,l,R)
+  q11 | abcdefghijklmnopqrstuvwxyz_=(q12,d,R)
+  q12 | abcdefghijklmnopqrstuvwxyz=(q12,_,R) _=(q13,,L)
+  q13 | _=(q13,,L) d=(q14,,R)
+* q14 |
+! q15 |

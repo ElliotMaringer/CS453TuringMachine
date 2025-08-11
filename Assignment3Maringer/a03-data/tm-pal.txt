@@ -1,0 +1,12 @@
+# A TM for the language { w in {0,1}^n | w = w^R (i.e., w is a palindrome) }.
+    2 | 0           1           X           _
+-> q0 | (q1,X,R)    (q2,X,R)    (q8,X,R)    (q8,_,R)
+   q1 | (q3,0,R)    (q3,1,R)    (q8,X,R)    (q8,_,R)
+   q2 | (q4,0,R)    (q4,1,R)    (q8,X,R)    (q8,_,R)
+   q3 | (q3,0,R)    (q3,1,R)    (q5,X,L)    (q5,_,L)
+   q4 | (q4,0,R)    (q4,1,R)    (q6,X,L)    (q6,_,L)
+   q5 | (q7,X,L)    -           -           -
+   q6 | -           (q7,X,L)    -           -
+   q7 | (q7,0,L)    (q7,1,L)    (q0,X,R)    -
+ * q8 |
+ ! q9 |

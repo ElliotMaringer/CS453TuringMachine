@@ -1,0 +1,9 @@
+# A TM for the context-free language { 0^n 1^n | n >= 0 }.
+    2 | 0        1        X        Y        _
+-> q0 | (q1,X,R) -        -        (q3,Y,R) (q4,_,R)
+   q1 | (q1,0,R) (q2,Y,L) -        (q1,Y,R) -
+   q2 | (q2,0,L) -        (q0,X,R) (q2,Y,L) -
+   q3 | -        -        -        (q3,Y,R) (q4,_,R)
+ * q4 | -        -        -        -        -
+ ! q5 | -        -        -        -        -
+

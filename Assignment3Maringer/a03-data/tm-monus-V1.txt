@@ -1,0 +1,16 @@
+# A TM for the monus (proper subtraction) operation, based on the design in
+# lecture. This TM does not try to verify that its input is in the proper
+# format before beginning its computation. As such, its "language" is a bit
+# unusual (which is to be expectd given that this TM computes instead of
+# decides).
+    2 | 0        1        _
+-> q0 | (q1,0,L) (q0,1,R) -
+   q1 | (q6,0,R) (q2,1,R) -
+   q2 | (q2,0,R) (q3,0,L) (q4,_,L)
+   q3 | (q3,0,L) (q1,0,L) -
+   q4 | (q4,_,L) (q5,1,R) -
+   q5 | -        -        (qA,0,R)
+   q6 | (q6,_,R) (q6,_,R) (qA,_,R)
+ * qA | -        -        -
+ ! qR | -        -        -
+

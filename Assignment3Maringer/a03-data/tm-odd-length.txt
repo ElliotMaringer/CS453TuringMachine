@@ -1,0 +1,6 @@
+# A TM for the regular language { w | |w| is odd }.
+    2 | 0          1       _
+-> q0 | 01=(q1,,R)
+   q1 | (q0,,R)    (q0,,R) (qA,,R)
+ * qA |
+ ! qR |

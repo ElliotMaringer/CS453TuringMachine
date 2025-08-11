@@ -1,0 +1,6 @@
+# A TM for the regular language { w | w contains an even number of 1's }.
+    2 | 0     1       _
+-> q0 | (,,R) (q1,,R) (qA,,R)
+   q1 | (,,R) (q0,,R) (qR,,R)
+ * qA |
+ ! qR |

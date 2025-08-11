@@ -1,0 +1,16 @@
+# A TM for the context-free language
+#   { w \in {0,1}^* | w has an equal number of 0's and 1's }.
+# This TM uses "long" tape symbols <s0>, <s1>, etc. to mark the 0's and 1's
+# that it finds in a non-destructive way, so that it can determine which
+# symbol in the input string was crossed off.
+# (We could simplify this if we didn't want to preserve the input symbols,
+# but this demonstrates how we can use "long" tape symbols.)
+        2 | 0 1 <s0> <s1> <x0> <x1> _
+->   init | 0=(find1,<s0>,R) 1=(find0,<s1>,R) _=(accept,,R)
+resetLeft | 01<x0><x1>=(,,L) <s0><s1>=(findSym,,R)
+  findSym | <x0><x1>=(,,R) 0=(find1,<x0>,R) 1=(find0,<x1>,R) _=(accept,,R)
+    find0 | 1<x0><x1>=(,,R) 0=(resetLeft,<x0>,L)
+    find1 | 0<x0><x1>=(,,R) 1=(resetLeft,<x1>,L)
+*  accept |
+!  reject |
+

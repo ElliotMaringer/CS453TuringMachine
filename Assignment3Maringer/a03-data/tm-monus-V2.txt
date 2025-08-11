@@ -1,0 +1,18 @@
+# A TM for the monus (proper subtraction) operation.
+# This version first verifies that the input has the right form and rejects
+# if not. Otherwise, it carries out the operation and accepts.
+        2 | 0 1 <s0> <s1> _
+->  check | 0=(check1,<s0>,R) 1=(check0,<s1>,R)
+   check0 | 1=(,,R) 0=(check1,,R)
+   check1 | 1=(,,R) _=(resetLeft,,L)
+resetLeft | 01=(,,L) <s0>=(init,0,L) <s1>=(init,1,L)
+     init | 0=(lookLeft,,L) 1=(,,R)
+ lookLeft | 0=(eraseAll,,R) 1=(findR1,,R)
+   findR1 | 0=(,,R) 1=(eraseL1,0,L) _=(erase0s,_,L)
+  eraseL1 | 0=(,,L) 1=(lookLeft,0,L)
+  erase0s | 0=(,_,L) 1=(add0,,R)
+     add0 | _=(accept,0,R)
+ eraseAll | 0=(,_,R) 1=(,_,R) _=(accept,_,R)
+*  accept |
+!  reject |
+

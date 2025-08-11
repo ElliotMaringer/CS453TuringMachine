@@ -1,0 +1,10 @@
+# A TM for the decidable language { 0^n 1^n 0^n | n \geq 0 }.
+       2 | 0 1 X Y Z _
+->  init | 0=(find1,X,R) _=(accept,,L)
+   find0 | 0=(find1,X,R) X=(,,R) Y=(verify,,R)
+   find1 | 0XY=(,,R) 1=(find2,Y,R)
+   find2 | 1YZ=(,,R) 0=(findX,Z,L)
+   findX | 01YZ=(,,L) X=(find0,,R)
+  verify | YZ=(,,R) _=(accept,,R)
+* accept |
+! reject |
